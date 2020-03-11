@@ -1,5 +1,4 @@
 <?php
-
 return [
 
     /*
@@ -8,7 +7,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | Here you can define the options that are passed to all NovaTinyMCE
-    | fields by default.
+    | fields by default. Override these values from options method when using fields.
     |
     */
 
@@ -23,10 +22,6 @@ return [
             'insertdatetime media table paste code help wordcount',
         ],
         'toolbar' => 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | ullist numlist outdent indent | removeformat | help | image',
-        'relative_urls' => false,
-        'use_lfm' => false,
-        'lfm_url' => 'laravel-filemanager'
     ],
 ];
-
 ?>

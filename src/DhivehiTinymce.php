@@ -36,10 +36,10 @@ class DhivehiTinymce extends Field
         ]);
     }
     public function options($options = null){
-//        $currentOptions = $this->meta['options'];
+        $currentOptions = $this->meta['options'];
 
         return $this->withMeta([
-            'options' => $options,
+            'options' => array_merge($currentOptions, $options),
         ]);
     }
     public function storingUrl($url = null){

@@ -17,7 +17,7 @@ class FieldServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__ . '/../config/dhivehi-tinymce.php' => config_path('dhivehi-tinymce.php'),
-        ], 'config');
+        ]);
 
         Nova::serving(function (ServingNova $event) {
             Nova::script('dhivehi-tinymce', __DIR__.'/../dist/js/field.js');
