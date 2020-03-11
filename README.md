@@ -93,3 +93,7 @@ DhivehiTinymce::make('Content', 'content')->storingUrl('your-url')
 After Image storing the image in serverside, json key named `location` and url for the location should be passed.
 
 This package is tested for **Nova Fields only**
+
+
+## Credit
+Huge Credit goes for [@Jawish Hameed](https://github.com/jawish) for his thaana translation plugin [Thaana Keyboard](https://github.com/jawish/jtk)
