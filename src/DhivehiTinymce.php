@@ -21,6 +21,7 @@ class DhivehiTinymce extends Field
         $this->withMeta([
             'options' => config('dhivehi-tinymce.default_options')
         ]);
+        $this->thaana(true);
     }
 
     public function thaana($thaana = true){
