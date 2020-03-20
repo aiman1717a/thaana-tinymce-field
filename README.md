@@ -1,4 +1,4 @@
-# DhivehiTinymce
+# thaana-tinymce
 This Nova Package allow you to use TinyMce Rich Editor with varios Customization which can thaana translation support.
 
 ## Installation
