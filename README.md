@@ -1,15 +1,15 @@
-# thaana-tinymce
+# thaana-tinymce-field
 This Nova Package allow you to use TinyMce Rich Editor with varios Customization which can thaana translation support.
 
 ## Installation
 ```
-composer require aiman/dhivehi-tinymce
+composer require aiman/thaana-tinymce-field
 ```
 
 ## Configuration
 You can publish configuration file for default configuration values
 ```
-php artisan vendor:publish --provider="Aiman\DhivehiTinymce\FieldServiceProvider"
+php artisan vendor:publish --provider="Aiman\ThaanaTinymceField\FieldServiceProvider"
 ```
 
 This is the contents of the published config file:
@@ -22,7 +22,7 @@ return [
     | Default Options
     |--------------------------------------------------------------------------
     |
-    | Here you can define the options that are passed to all DhivehiTinymce
+    | Here you can define the options that are passed to all ThaanaTinymceField
     | fields by default. Override these values from options method when using fields.
     |
     */
@@ -44,9 +44,9 @@ return [
 ```
 
 ## Usage
-In your Nova resource add the use declaration and use the NovaTinyMCE field:
+In your Nova resource add the use declaration and use the ThaanaTinymceField field:
 ```
-use Aiman\DhivehiTinymce\DhivehiTinymce;
+use Aiman\ThaanaTinymceField\ThaanaTinymceField;
 
     /**
      * Get the fields displayed by the resource.
@@ -59,34 +59,34 @@ use Aiman\DhivehiTinymce\DhivehiTinymce;
         return [
             ID::make()->sortable(),
 
-            NovaTinyMCE::make('body'),
+            ThaanaTinymceField::make('body'),
         ];
     }
 ```
 
 ### Options
 
-You can pass values to options method which will override `dhivehi-tinymce.php`
+You can pass values to options method which will override `thaana-tinymce-field.php`
 ``` PHP
-DhivehiTinymce::make('Content', 'content')->options(['key' => 'value'])
+ThaanaTinymceField::make('Content', 'content')->options(['key' => 'value'])
 ```
 
 ### Thaana
 You can turn thaana translation. by default it is `true`.
 ``` PHP
-DhivehiTinymce::make('Content', 'content')->thaana()
+ThaanaTinymceField::make('Content', 'content')->thaana()
 ```
 
 ### Api Key
 You Can pass your own Api Key here from tiny mci cloud
 ``` PHP
-DhivehiTinymce::make('Content', 'content')->apikey('your-api-key')
+ThaanaTinymceField::make('Content', 'content')->apikey('your-api-key')
 ```
 
 ### Image Url
 Url for in which uploaded images are requested for storing. 
 ``` PHP
-DhivehiTinymce::make('Content', 'content')->storingUrl('your-url')
+ThaanaTinymceField::make('Content', 'content')->storingUrl('your-url')
 ```
 
 ## Important
