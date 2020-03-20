@@ -1,10 +1,10 @@
 <?php
 
-namespace Aiman\DhivehiTinymce;
+namespace Aiman\ThaanaTinymce;
 
 use Laravel\Nova\Fields\Field;
 
-class DhivehiTinymce extends Field
+class ThaanaTinymce extends Field
 {
     public $showOnIndex = false;
     /**
@@ -12,7 +12,7 @@ class DhivehiTinymce extends Field
      *
      * @var string
      */
-    public $component = 'dhivehi-tinymce';
+    public $component = 'thaana-tinymce';
 
     public function __construct(string $name, ?string $attribute = null, ?mixed $resolveCallback = null)
     {

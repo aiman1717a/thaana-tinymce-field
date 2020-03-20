@@ -1,6 +1,6 @@
 <?php
 
-namespace Aiman\DhivehiTinymce;
+namespace Aiman\ThaanaTinymce;
 
 use Illuminate\Support\ServiceProvider;
 use Laravel\Nova\Events\ServingNova;

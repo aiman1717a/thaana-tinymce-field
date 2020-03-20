@@ -1,9 +1,11 @@
 {
-    "name": "aiman/dhivehi-tinymce",
-    "description": "A Laravel Nova field.",
+    "name": "aiman/thaana-tinymce",
+    "description": "A Laravel Nova Tinymce Field for Thaana",
     "keywords": [
         "laravel",
-        "nova"
+        "nova",
+        "thaana",
+        "tinymce"
     ],
     "license": "MIT",
     "require": {
@@ -11,13 +13,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Aiman\\DhivehiTinymce\\": "src/"
+            "Aiman\\ThaanaTinymce\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Aiman\\DhivehiTinymce\\FieldServiceProvider"
+                "Aiman\\ThaanaTinymce\\FieldServiceProvider"
             ]
         }
     },
