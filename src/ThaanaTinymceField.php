@@ -12,14 +12,14 @@ class ThaanaTinymceField extends Field
      *
      * @var string
      */
-    public $component = 'thaana-tinymce';
+    public $component = 'thaana-tinymce-field';
 
     public function __construct(string $name, ?string $attribute = null, ?mixed $resolveCallback = null)
     {
         parent::__construct($name, $attribute, $resolveCallback);
 
         $this->withMeta([
-            'options' => config('dhivehi-tinymce.default_options')
+            'options' => config('thaana-tinymce-field.default_options')
         ]);
         $this->thaana(true);
     }

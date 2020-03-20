@@ -16,7 +16,7 @@ class FieldServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../config/dhivehi-tinymce.php' => config_path('dhivehi-tinymce.php'),
+            __DIR__ . '/../config/thaana-tinymce-field.php' => config_path('thaana-tinymce-field.php'),
         ]);
 
         Nova::serving(function (ServingNova $event) {
@@ -33,6 +33,6 @@ class FieldServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/dhivehi-tinymce.php', 'dhivehi-tinymce');
+        $this->mergeConfigFrom(__DIR__.'/../config/thaana-tinymce-field.php', 'thaana-tinymce-field');
     }
 }
