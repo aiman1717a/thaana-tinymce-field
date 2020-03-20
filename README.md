@@ -13,7 +13,7 @@ php artisan vendor:publish --provider="Aiman\DhivehiTinymce\FieldServiceProvider
 ```
 
 This is the contents of the published config file:
-```
+``` PHP
  <?php
 return [
 
@@ -67,25 +67,25 @@ use Aiman\DhivehiTinymce\DhivehiTinymce;
 ### Options
 
 You can pass values to options method which will override `dhivehi-tinymce.php`
-```
+``` PHP
 DhivehiTinymce::make('Content', 'content')->options(['key' => 'value'])
 ```
 
 ### Thaana
 You can turn thaana translation. by default it is `true`.
-```
+``` PHP
 DhivehiTinymce::make('Content', 'content')->thaana()
 ```
 
 ### Api Key
 You Can pass your own Api Key here from tiny mci cloud
-```
+``` PHP
 DhivehiTinymce::make('Content', 'content')->apikey('your-api-key')
 ```
 
 ### Image Url
 Url for in which uploaded images are requested for storing. 
-```
+``` PHP
 DhivehiTinymce::make('Content', 'content')->storingUrl('your-url')
 ```
 
