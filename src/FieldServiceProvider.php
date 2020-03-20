@@ -1,6 +1,6 @@
 <?php
 
-namespace Aiman\ThaanaTinymce;
+namespace Aiman\ThaanaTinymceField;
 
 use Illuminate\Support\ServiceProvider;
 use Laravel\Nova\Events\ServingNova;

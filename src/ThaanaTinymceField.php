@@ -1,10 +1,10 @@
 <?php
 
-namespace Aiman\ThaanaTinymce;
+namespace Aiman\ThaanaTinymceField;
 
 use Laravel\Nova\Fields\Field;
 
-class ThaanaTinymce extends Field
+class ThaanaTinymceField extends Field
 {
     public $showOnIndex = false;
     /**

@@ -1,5 +1,5 @@
 {
-    "name": "aiman/thaana-tinymce",
+    "name": "aiman/thaana-tinymce-field",
     "description": "A Laravel Nova Tinymce Field for Thaana",
     "keywords": [
         "laravel",
@@ -13,13 +13,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Aiman\\ThaanaTinymce\\": "src/"
+            "Aiman\\ThaanaTinymceField\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Aiman\\ThaanaTinymce\\FieldServiceProvider"
+                "Aiman\\ThaanaTinymceField\\FieldServiceProvider"
             ]
         }
     },
