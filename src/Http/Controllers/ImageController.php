@@ -15,7 +15,6 @@ class ImageController extends Controller
     public function saveImage(NovaRequest $request)
     {
         try{
-
             if (!$request->hasFile('file') && !$request->file('file')->isValid()) {
                throw new Exception('File Missing');
             }
@@ -29,10 +28,9 @@ class ImageController extends Controller
             }
 
             $newName =  Str::random(10);
-            $request->file('file')->storeAs('tinymce', $newName . '.'. $file->getClientOriginalExtension(), 'public');
+            $path = $request->file('file')->storeAs('tinymce', $newName . '.'. $file->getClientOriginalExtension(), env('FILESYSTEM_DRIVER', 'public'));
 
-            return response()->json(['location' => '/storage/tinymce/' . $newName . '.jpg']);
-
+            return response()->json(['location' => $path . $newName . '.jpg']);
         } catch (Exception $exception){
             return response()->json(['error' => $exception->getMessage()]);
         }
