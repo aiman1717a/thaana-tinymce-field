@@ -15,7 +15,6 @@
 <script>
     import { FormField, HandlesValidationErrors } from 'laravel-nova';
     import Editor from '@tinymce/tinymce-vue';
-    import 'axios';
 
     export default {
         components: {
@@ -31,6 +30,10 @@
         props: ['resourceName', 'resourceId', 'field'],
 
         computed: {
+            api_key: function() {
+
+            },
+
             new_options: function () {
                 return {...this.field.options, ...this.init};
             }
@@ -58,14 +61,12 @@
             },
         },
         mounted() {
-            console.log('mounted');
             var ref = this;
             this.init = {
                 images_upload_handler: async function(blobInfo, success, failure) {
-                    axios = axios.default;
                     let formData = new FormData();
                     formData.append('file', blobInfo.blob());
-                    return await axios.post(ref.field.url,
+                    return await window.axios.post('/nova-vendor/thaana-tinymce-field/save-image',
                         formData, {
                             headers: {
                                 'Content-Type': 'multipart/form-data'

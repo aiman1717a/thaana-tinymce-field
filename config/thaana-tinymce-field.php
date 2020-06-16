@@ -23,5 +23,6 @@ return [
         ],
         'toolbar' => 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | ullist numlist outdent indent | removeformat | help | image',
     ],
+    'api_key' => 'YOUR API KEY HERE'
 ];
 ?>

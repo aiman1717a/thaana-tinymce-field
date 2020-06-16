@@ -21,6 +21,10 @@ class ThaanaTinymceField extends Field
         $this->withMeta([
             'options' => config('thaana-tinymce-field.default_options')
         ]);
+
+        $this->withMeta([
+            'api_key' => config('thaana-tinymce-field.api_key')
+        ]);
         $this->thaana(true);
     }
 
@@ -30,12 +34,6 @@ class ThaanaTinymceField extends Field
         ]);
     }
 
-
-    public function apiKey(string $key = null){
-        return $this->withMeta([
-            'api_key' => $key,
-        ]);
-    }
     public function options($options = null){
         $currentOptions = $this->meta['options'];
 
@@ -43,11 +41,7 @@ class ThaanaTinymceField extends Field
             'options' => array_merge($currentOptions, $options),
         ]);
     }
-    public function storingUrl($url = null){
-        return $this->withMeta([
-            'url' => $url,
-        ]);
-    }
+
     public function addClasses($classes = null){
         return $this->withMeta([
             'classes' => $classes,
