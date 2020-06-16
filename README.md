@@ -1,5 +1,5 @@
 # thaana-tinymce-field
-This Nova Package allow you to use TinyMce Rich Editor with varios Customization which can thaana translation support.
+This Nova Package allow you to use TinyMce Rich Editor with varios Customization which supports thaana.
 
 ## Installation
 ```
@@ -27,7 +27,7 @@ return [
     |
     */
 
-    'default_options' => [
+     'default_options' => [
         'height' => 500,
         'menubar'=> "",
         'directionality'=> "ltr",
@@ -39,6 +39,7 @@ return [
         ],
         'toolbar' => 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | ullist numlist outdent indent | removeformat | help | image',
     ],
+    'api_key' => 'YOUR API KEY HERE'
 ];
 ?>
 ```
@@ -59,14 +60,13 @@ use Aiman\ThaanaTinymceField\ThaanaTinymceField;
         return [
             ID::make()->sortable(),
 
-            ThaanaTinymceField::make('body'),
+            ThaanaTinymceField::make('Content', 'content'),
         ];
     }
 ```
 
 ### Options
-
-You can pass values to options method which will override `thaana-tinymce-field.php`
+You can pass values to options method which will override `thaana-tinymce-field.php`'s option array defualt values
 ``` PHP
 ThaanaTinymceField::make('Content', 'content')->options(['key' => 'value'])
 ```
@@ -77,22 +77,16 @@ You can turn thaana translation. by default it is `true`.
 ThaanaTinymceField::make('Content', 'content')->thaana()
 ```
 
-### Api Key
-You Can pass your own Api Key here from tiny mci cloud
+### Classes
+You can turn thaana translation. by default it is `true`.
 ``` PHP
-ThaanaTinymceField::make('Content', 'content')->apikey('your-api-key')
-```
-
-### Image Url
-Url for in which uploaded images are requested for storing. 
-``` PHP
-ThaanaTinymceField::make('Content', 'content')->storingUrl('your-url')
+ThaanaTinymceField::make('Content', 'content')->thaana()
 ```
 
 ## Important
-After Image storing the image in serverside, json key named `location` and url for the location should be passed.
+After Image uploaded to tinymce is stored automatically. However it is still being tested
 
-This package is tested for **Nova Fields only**
+This package is tested for **Nova 2.0+**
 
 
 ## Credit
