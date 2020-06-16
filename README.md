@@ -1,5 +1,5 @@
 # thaana-tinymce-field
-This Nova Package allow you to use TinyMce Rich Editor with varios Customization which can thaana translation support.
+This Nova Package allow you to use TinyMce Rich Editor with varios Customization which supports thaana.
 
 ## Installation
 ```
