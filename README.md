@@ -7,7 +7,7 @@ composer require aiman/thaana-tinymce-field
 ```
 
 ## Configuration
-You can publish configuration file for default configuration values
+You can publish configuration file for default configuration values. You can enter the driver required for tinymce in here.
 ```
 php artisan vendor:publish --provider="Aiman\ThaanaTinymceField\FieldServiceProvider"
 ```
@@ -39,7 +39,8 @@ return [
         ],
         'toolbar' => 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | ullist numlist outdent indent | removeformat | help | image',
     ],
-    'api_key' => 'YOUR API KEY HERE'
+    'api_key' => 'YOUR API KEY HERE',
+    'driver' => env('FILESYSTEM_DRIVER', 'public')
 ];
 ?>
 ```
@@ -87,16 +88,6 @@ ThaanaTinymceField::make('Content', 'content')->thaana()
 TinyMCE supports embedding images into the editor. This function requires the folder name in which the images will be stored. By default all images will be stored in the root of the storage
 ``` PHP
 ThaanaTinymceField::make('Content', 'content')->folder('tinymce')
-```
-
-### Driver Type
-By default driver type is local. Driver type defines whether the content is uploaded to cloud or local. For example if your using s3 driver then cloud.
-| Param          | 
-| -------------- |
-| local          | 
-| cloud          | 
-``` PHP
-ThaanaTinymceField::make('Content', 'content')->driverType('cloud')
 ```
 
 ### Storage Path
