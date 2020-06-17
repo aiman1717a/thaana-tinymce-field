@@ -31,10 +31,6 @@
 
         computed: {
             url: function() {
-                var ref = this;
-                if(ref.field.driver_type === 'cloud'){
-                    return '/nova-vendor/thaana-tinymce-field/save-image-in-cloud';
-                }
                 return '/nova-vendor/thaana-tinymce-field/save-image';
             },
 
@@ -70,6 +66,7 @@
                 images_upload_handler: async function(blobInfo, success, failure) {
                     let formData = new FormData();
                     formData.append('file', blobInfo.blob());
+                    formData.append('driver', ref.field.driver);
                     formData.append('folder', ref.field.folder);
 
                     return await window.axios.post(ref.url,

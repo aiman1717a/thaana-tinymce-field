@@ -620,10 +620,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
     computed: {
         url: function url() {
-            var ref = this;
-            if (ref.field.driver_type === 'cloud') {
-                return '/nova-vendor/thaana-tinymce-field/save-image-in-cloud';
-            }
             return '/nova-vendor/thaana-tinymce-field/save-image';
         },
 
@@ -668,9 +664,10 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                     formData = new FormData();
 
                                     formData.append('file', blobInfo.blob());
+                                    formData.append('driver', ref.field.driver);
                                     formData.append('folder', ref.field.folder);
 
-                                    _context.next = 5;
+                                    _context.next = 6;
                                     return window.axios.post(ref.url, formData, {
                                         headers: {
                                             'Content-Type': 'multipart/form-data'
@@ -685,10 +682,10 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                         failure(error.statusCode);
                                     });
 
-                                case 5:
+                                case 6:
                                     return _context.abrupt('return', _context.sent);
 
-                                case 6:
+                                case 7:
                                 case 'end':
                                     return _context.stop();
                             }

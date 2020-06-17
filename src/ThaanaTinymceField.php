@@ -25,6 +25,10 @@ class ThaanaTinymceField extends Field
         $this->withMeta([
             'api_key' => config('thaana-tinymce-field.api_key')
         ]);
+
+        $this->withMeta([
+            'driver' => config('thaana-tinymce-field.driver')
+        ]);
         $this->thaana(true);
     }
 
@@ -56,11 +60,6 @@ class ThaanaTinymceField extends Field
     public function storagePath($path = null){
         return $this->withMeta([
             'path' => $path,
-        ]);
-    }
-    public function driverType($driver_type = 'local'){
-        return $this->withMeta([
-            'driver_type' => $driver_type,
         ]);
     }
 }

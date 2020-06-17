@@ -17,30 +17,6 @@ class ImageController extends Controller
     {
         try{
             if (!$request->hasFile('file') && !$request->file('file')->isValid()) {
-               throw new Exception('File Missing');
-            }
-            $file = $request->file('file');
-            if(!$this->checkMimeType($file)) {
-                throw new Exception('Mime type mismatch');
-            }
-
-            if(!$this->checkExtension($file)) {
-                throw new Exception('Extension mismatch');
-            }
-
-            $newName =  Str::random(10);
-            $path = $file->storeAs($request->get('folder'), $newName . '.'. $file->getClientOriginalExtension(), env('FILESYSTEM_DRIVER', 'public'));
-            return response()->json(['location' => $path]);
-        } catch (Exception $exception){
-            return response()->json(['error' => $exception->getMessage()]);
-        }
-
-    }
-
-    public function saveImageInCloud(NovaRequest $request)
-    {
-        try{
-            if (!$request->hasFile('file') && !$request->file('file')->isValid()) {
                 throw new Exception('File Missing');
             }
             $file = $request->file('file');
@@ -53,7 +29,7 @@ class ImageController extends Controller
             }
 
             $newName =  Str::random(10);
-            $path = Storage::disk('do-spaces')->put($request->get('folder'), $file);
+            $path = Storage::disk($request->get('driver'))->put($request->get('folder'), $file);
             return response()->json(['location' => $path]);
         } catch (Exception $exception){
             return response()->json(['error' => $exception->getMessage()]);
