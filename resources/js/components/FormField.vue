@@ -22,7 +22,7 @@
         },
         data(){
             return{
-                init: {}
+                init: {},
             }
         },
         mixins: [FormField, HandlesValidationErrors],
@@ -30,8 +30,12 @@
         props: ['resourceName', 'resourceId', 'field'],
 
         computed: {
-            api_key: function() {
-
+            url: function() {
+                var ref = this;
+                if(ref.field.driver_type === 'cloud'){
+                    return '/nova-vendor/thaana-tinymce-field/save-image-in-cloud';
+                }
+                return '/nova-vendor/thaana-tinymce-field/save-image';
             },
 
             new_options: function () {
@@ -66,13 +70,20 @@
                 images_upload_handler: async function(blobInfo, success, failure) {
                     let formData = new FormData();
                     formData.append('file', blobInfo.blob());
-                    return await window.axios.post('/nova-vendor/thaana-tinymce-field/save-image',
-                        formData, {
+                    formData.append('folder', ref.field.folder);
+
+                    return await window.axios.post(ref.url,
+                        formData,
+                        {
                             headers: {
                                 'Content-Type': 'multipart/form-data'
                             }
                         }).then(function (response) {
-                        success(response.data.location);
+                            if(ref.field.path !== null){
+                                success(ref.field.path + response.data.location);
+                            } else {
+                                success(response.data.location);
+                            }
                     }).catch(function (error) {
                         failure(error.statusCode)
                     })

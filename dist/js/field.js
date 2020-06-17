@@ -619,7 +619,13 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     props: ['resourceName', 'resourceId', 'field'],
 
     computed: {
-        api_key: function api_key() {},
+        url: function url() {
+            var ref = this;
+            if (ref.field.driver_type === 'cloud') {
+                return '/nova-vendor/thaana-tinymce-field/save-image-in-cloud';
+            }
+            return '/nova-vendor/thaana-tinymce-field/save-image';
+        },
 
         new_options: function new_options() {
             return _extends({}, this.field.options, this.init);
@@ -662,21 +668,27 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                     formData = new FormData();
 
                                     formData.append('file', blobInfo.blob());
-                                    _context.next = 4;
-                                    return window.axios.post('/nova-vendor/thaana-tinymce-field/save-image', formData, {
+                                    formData.append('folder', ref.field.folder);
+
+                                    _context.next = 5;
+                                    return window.axios.post(ref.url, formData, {
                                         headers: {
                                             'Content-Type': 'multipart/form-data'
                                         }
                                     }).then(function (response) {
-                                        success(response.data.location);
+                                        if (ref.field.path !== null) {
+                                            success(ref.field.path + response.data.location);
+                                        } else {
+                                            success(response.data.location);
+                                        }
                                     }).catch(function (error) {
                                         failure(error.statusCode);
                                     });
 
-                                case 4:
+                                case 5:
                                     return _context.abrupt('return', _context.sent);
 
-                                case 5:
+                                case 6:
                                 case 'end':
                                     return _context.stop();
                             }

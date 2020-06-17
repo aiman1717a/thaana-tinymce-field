@@ -47,4 +47,20 @@ class ThaanaTinymceField extends Field
             'classes' => $classes,
         ]);
     }
+
+    public function folder($folder = '/'){
+        return $this->withMeta([
+            'folder' => $folder,
+        ]);
+    }
+    public function storagePath($path = null){
+        return $this->withMeta([
+            'path' => $path,
+        ]);
+    }
+    public function driverType($driver_type = 'local'){
+        return $this->withMeta([
+            'driver_type' => $driver_type,
+        ]);
+    }
 }

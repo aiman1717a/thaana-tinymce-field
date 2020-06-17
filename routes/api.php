@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('save-image', [ImageController::class, 'saveImage']);
+Route::post('save-image-in-cloud', [ImageController::class, 'saveImageInCloud']);
