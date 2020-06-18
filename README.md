@@ -1,6 +1,10 @@
 # thaana-tinymce-field
 This Nova Package allow you to use TinyMce Rich Editor with varios Customization which supports thaana.
 
+![image](https://user-images.githubusercontent.com/36910126/85004534-84906180-b10c-11ea-98b8-fc66d4c1994f.png)
+
+![image](https://user-images.githubusercontent.com/36910126/85004741-c28d8580-b10c-11ea-8872-ac2a292747a0.png)
+
 ## Installation
 ```
 composer require aiman/thaana-tinymce-field
